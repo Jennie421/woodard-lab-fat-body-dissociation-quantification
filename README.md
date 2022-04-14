@@ -1,11 +1,14 @@
-# Woodard Lab
-## fat body dissociation quantification
+# Fat Body Dissociation Quantification
+<center>
+By Jennie Li from Woodard Lab 
+</center>
+
 This repo contains the manuscripts and codes for quantitative assessment of Drosophila fat body dissociation. 
 
 ## Step 1: ImageJ 
 ### Set up 
-1. Download ImageJ
-2. Open the microscopy image in ImageJ 
+1. Download [ImageJ](https://imagej.nih.gov/ij/download.html).
+2. Open the microscopy image in ImageJ.
 
 ### Set scale using the scale bar 
 (important for determining the area)
