@@ -36,8 +36,8 @@ This repo contains the manuscripts and codes for quantitative assessment of Dros
 
 
 ## Step 2: Python Script
-1. Download the zip file to your local computer.  
-2. Put the csv files you want to analyze in a folder inside the downloaded folder. 
+1. Download the zip file to your local computer. Click the green button "Code" on the upper right corner of this git hub page - "Download ZIP". 
+2. Put the csv files you want to analyze in a folder, inside the downloaded folder. 
 3. Open quantification.py using [Visual Studio Code](https://code.visualstudio.com/?wt.mc_id=vscom_downloads)
 4. Set the **genotype variables** based on your design. For example, I have three csv files 
    * WT_xx_xxxx_xxxx_xxxxxxxx
