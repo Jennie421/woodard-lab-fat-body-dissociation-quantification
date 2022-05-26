@@ -31,7 +31,7 @@ from scipy import stats
 ''' 
 A function that performs arera calculation. 
 '''
-def area_cal(name: str):
+def area_cal(name):
     df = pd.read_csv(name)
     total = sum(df['Area'])
 
@@ -79,7 +79,7 @@ def plot(df, title):
     plt.axis([0,16,0,80])
     plt.text(x=10, y=3, s=f"r = {correlation}")
     plt.title(title)
-    plt.savefig(f"Scatterplot_With_Regression_Fit_{name}.png")
+    plt.savefig(f"Scatterplot_With_Regression_Fit_{title}.png")
     return lm_plot
 
 
