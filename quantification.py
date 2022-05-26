@@ -1,6 +1,24 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+'''For Users'''
+"""
+Make sure the name of each csv file is in the below format: 
+genotype_temperature_starttime_endtime_date
+E.g. WT_30c_0905_1755_20220207
+"""
+
+'''Modify the below variables to match your setting'''
+# Exactly as in the file name
+genotype1 = "Dilp5-Shi"
+genotype2 = "Dilp5-TrpA1"
+genotype3 = "WT"
+# The relative location where the csv files are 
+directory = "demo files"
+
+
+
+'''For Admin Only'''
 # Import Libraries 
 import pandas as pd
 import os
@@ -10,11 +28,10 @@ import matplotlib.pyplot as plt
 from scipy import stats
 
 
-
-# Area Calculation
+''' 
+A function that performs arera calculation. 
+'''
 def area_cal(name: str):
-    # E.g. wt_25c_0905_1755_20220207
-    
     df = pd.read_csv(name)
     total = sum(df['Area'])
 
@@ -25,9 +42,10 @@ def area_cal(name: str):
     return result
 
 
-
-# Time Calculation
-def time_cal (s):
+''' 
+A function that performs time calculation. 
+'''
+def time_cal(s):
     s = s.split('_')
     date = s[4]
     start = s[2]
@@ -47,22 +65,25 @@ def time_cal (s):
     return duration
 
 
-# Plots and Correlation 
-def plot(df, name): 
+''' 
+A function that perform regression analysis. 
+It takes a data frame of a genotype and title
+and returns a linear model plot. 
+'''
+def plot(df, title): 
     correlation = df["APF"].corr(df['Dissociation']).round(2)
-
     # get coeffs of linear fit
     slope, intercept, r_value, p_value, std_err = stats.linregress(df['APF'],df['Dissociation'])
     lm_plot = sns.regplot( x="APF", y="Dissociation", data=df, line_kws={'label':"y={0:.1f}x+{1:.1f}".format(slope,intercept)} )
     lm_plot.legend(loc="upper left") # plot legend
     plt.axis([0,16,0,80])
     plt.text(x=10, y=3, s=f"r = {correlation}")
-    plt.title(name)
+    plt.title(title)
     plt.savefig(f"Scatterplot_With_Regression_Fit_{name}.png")
     return lm_plot
 
 
-# Main Script
+'''Main Script'''
 
 # Initialize a data set 
 data = {'Genotype': [],
@@ -71,8 +92,7 @@ data = {'Genotype': [],
         'Dissociation': [],
         'Original file': []}
 
-directory = "all areas"
-
+# Extract genotype, temperature, APF from files
 for file in os.listdir(directory):
     if file.endswith(".csv"):
         data['Dissociation'] += [area_cal(directory + '/' + file)]
@@ -84,17 +104,17 @@ for file in os.listdir(directory):
 
         data['Original file'] += [file] # add the original file name 
 
-# Summary of results
+# Export a summary of results
 df = pd.DataFrame(data).sort_values(by="APF")
 df.to_csv('summary.csv')
 
-
-Shi_df = df[df["Genotype"]=="Dilp5-Shi"]
-TrpA1_df = df[df["Genotype"]=="Dilp5-TrpA1"]
-WT_df = df[df["Genotype"]=="WT"]
+# Establish df for each genotype 
+df_genotype1 = df[df["Genotype"]==genotype1]
+df_genotype2 = df[df["Genotype"]==genotype2]
+df_genotype3 = df[df["Genotype"]==genotype3]
 
 # Generate plots  
-plot(Shi_df, "Dilp5-Shi")
-plot(TrpA1_df, "Dilp5-TrpA1")
-plot(WT_df, "WT")
+plot(df_genotype1, genotype1)
+plot(df_genotype2, genotype2)
+plot(df_genotype3, genotype3)
 
