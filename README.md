@@ -41,7 +41,7 @@ This repo contains the manuscripts and codes for quantitative assessment of _Dro
    ```
    $ cd /Users/test/Desktop/woodard-quantification-main
    ``` 
-3. Type the following command to install packages required: 
+3. Type or copy the following command to install packages required: 
    ```
    pip install -r requirement.txt
    ``` 
@@ -55,7 +55,7 @@ This repo contains the manuscripts and codes for quantitative assessment of _Dro
    I should set variables genotype1, genotype2, and genotype3 equals to "WT", "Dilp5-Shi", and "Dilp5-TrpA1". **The quotation marks are necessary**. 
 8. Change the **variable `directory`** to the name of the folder containing your data. For example, set `directory` equals to "demo files" since my csv files are in the folder called "demo files". 
 9. Save your changes. 
-10. Go to **terminal**. To run the program, type 
+10. Go to **terminal**. To run the program, type or copy
    ```
    python quantification.py
    ``` 
