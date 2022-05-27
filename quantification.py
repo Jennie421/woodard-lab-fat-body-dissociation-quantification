@@ -20,9 +20,6 @@ directory = "demo files"
 
 '''For Admin Only'''
 # Import Libraries 
-import sys
-print(sys.executable)
-
 import pandas as pd
 import os
 import datetime

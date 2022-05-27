@@ -37,21 +37,26 @@ This repo contains the manuscripts and codes for quantitative assessment of _Dro
 
 ## Step 2: Python Script
 1. Download the zip file to your local computer. Click the green button "Code" on the upper right corner of this git hub page - "Download ZIP". 
-2. Open **terminal**. Type following command: 
+2. Open **terminal**. Type "cd", type a space, then drag the downloaded folder "woodard-quantification-main" into terminal. After, you should see one line like below (the exact path will be different depending on folder's location). Then type enter to execute the line of command. 
    ```
-   pip install -r requirement.txt 
+   $ cd /Users/test/Desktop/woodard-quantification-main
    ``` 
-3. Put the csv files you want to analyze in a folder, inside the downloaded folder. 
-4. Open quantification.py using [Visual Studio Code](https://code.visualstudio.com/?wt.mc_id=vscom_downloads). You only need to modify the section at the top. 
-5. Set the **genotype variables** based on your design. For example, I have three csv files, 
+3. Type the following command to install packages required: 
+   ```
+   pip install -r requirement.txt
+   ``` 
+4. For testing purposes, you can skip to step 10. By default, the program will analyze the data in the folder "demo" and output results. 
+5. Put the csv files you want to analyze into one folder, then put the folder inside the downloaded folder. 
+6. Open quantification.py using [Visual Studio Code](https://code.visualstudio.com/?wt.mc_id=vscom_downloads). You only need to modify the section "For Users" at the top. 
+7. Change the **genotype variables** based on your design. For example, I have three csv files, 
    * WT_xx_xxxx_xxxx_xxxxxxxx
    * Dilp5-Shi_xx_xxxx_xxxx_xxxxxxxx
    * Dilp5-TrpA1_xx_xxxx_xxxx_xxxxxxxx
-I should set variables genotype1, genotype2, and genotype3 equals to "WT", "Dilp5-Shi", and "Dilp5-TrpA1". **The quotation marks are necessary**. 
-5. Set the **variable `directory`** to the relative location of the files you want to analyze. For example, set `directory` equals to "demo files" since my csv files are in the folder called "demo files". 
-6. Save your changes. 
-7. Go to **terminal**. To run the program, type 
+   I should set variables genotype1, genotype2, and genotype3 equals to "WT", "Dilp5-Shi", and "Dilp5-TrpA1". **The quotation marks are necessary**. 
+8. Change the **variable `directory`** to the name of the folder containing your data. For example, set `directory` equals to "demo files" since my csv files are in the folder called "demo files". 
+9. Save your changes. 
+10. Go to **terminal**. To run the program, type 
    ```
    python quantification.py
    ``` 
-   The program should run and output a "summary.csv" and linear regression plots. 
+   The program should run and output a "summary.csv" and linear regression plots in the downloaded folder. 
