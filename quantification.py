@@ -20,6 +20,9 @@ directory = "demo files"
 
 '''For Admin Only'''
 # Import Libraries 
+import sys
+print(sys.executable)
+
 import pandas as pd
 import os
 import datetime
@@ -29,7 +32,7 @@ from scipy import stats
 
 
 ''' 
-A function that performs arera calculation. 
+A function that performs area calculation. 
 '''
 def area_cal(name):
     df = pd.read_csv(name)
