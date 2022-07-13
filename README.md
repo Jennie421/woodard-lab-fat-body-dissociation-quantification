@@ -43,14 +43,14 @@ NOTICE: In this version, Visual Studio Code is no longer needed.
 1. Download the repository folder to your local computer. Click the green button "Code" on the upper right corner of this git hub page - "Download ZIP". 
 2. Open **terminal**. Type "cd", type a space, then drag the downloaded repository folder "woodard-lab-fat-body-dissociation-quantification" into terminal. After, you should see one line like below (the exact path might differ depending on your folder location). 
 	```
-	$ cd  /Users/test/woodard-lab-fat-body-dissociation-quantification
+	$ cd  /Users/test/woodard-quantification-main
 	``` 
 	Then type enter/return to execute the line of command. 
 3. Type or copy the following command to install required packages: 
 	```
 	pip install -r requirement.txt
 	``` 
-4. Organize raw csv files into genotype subfolders, and then into a folder as indicated in the diagram. Name the folder as your study name. Put the folder inside the repository folder. 
+4. Organize raw csv files into genotype subfolders, and then into a folder as indicated in the diagram. Name the folder as your study name. Put the folder inside the repository folder. Do not worry about the future outputs which are ***bolded and italicized***. 
    !["organization"](quantification_organization_diagram.png)
 
 5.  Go to **terminal**. The script takes one argument - the study name. 
@@ -62,7 +62,7 @@ NOTICE: In this version, Visual Studio Code is no longer needed.
 	bash run_quantification.sh DILP22
 	``` 
 	When the program runs, you will be informed by the messages printed in the terminal. 
-6. Results will be generated and can be found in your study folder. In the diagram the outputs are ***bolded and italicized***. 
+6. Results will be generated and can be found in your study folder:
     * "metadata" folder containing "study_wide_metadata.csv", which is a summary of all data in the study. 
     * each genotype folder will have a subfolder "results" containing a linear regression plot and a summary for the genotype. 
 
